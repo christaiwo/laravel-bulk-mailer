@@ -11,7 +11,10 @@ class Mail extends Model
 
     protected $fillable = [
         'subject',
-        'message'
+        'message',
+        'total',
+        'sent',
+        'status',
     ];
 
 

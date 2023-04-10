@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('mail_id')->constrained()->onUpdate('restrict')->onDelete('cascade');
             $table->string('email')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

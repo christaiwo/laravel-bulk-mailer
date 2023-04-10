@@ -11,6 +11,7 @@ class Email extends Model
 
     protected $fillable = [
         'email',
+        'status'
     ];
 
 

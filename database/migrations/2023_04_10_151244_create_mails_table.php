@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('subject')->nullable();
             $table->longText('message')->nullable();
+            $table->integer('total')->default(0);
+            $table->integer('sent')->default(0);
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

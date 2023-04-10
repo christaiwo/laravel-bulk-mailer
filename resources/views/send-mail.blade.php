@@ -12,6 +12,11 @@
                     <h1 class="text-2xl text-center font-medium text-gray-900 dark:text-white">
                         TO SEND MAIL TO MULTIPLE USERS USE COMMA TO SEPERATE EACH EMAIL
                     </h1>
+                    @error('message')
+                        <div class="text-center mt-4" >
+                            <strong class="bg-red-500 py-2 px-2 uppercase opacity-10">All field is required</strong>
+                        </div>
+                    @enderror
                 
                     <form action="{{ route('email.insert') }}" method="POST" class="mt-5"> 
                         @csrf
@@ -28,11 +33,6 @@
                         <div class="mt-4">
                             <label for="">MESSAGE</label>
                             <textarea name="message" id="" cols="30" rows="10" class="w-full decoration-none border-blue-200 focus:outline-none "></textarea>
-                            @error('message')
-                                <div class="text-center" >
-                                    <h1 class="bg-red-500  text-2xl">{{ $message }}</h1>
-                                </div>
-                            @enderror
                         </div>
                         <div class="mt-4 text-center">
                             <x-button>
