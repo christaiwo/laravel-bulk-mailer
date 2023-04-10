@@ -15,7 +15,7 @@ use Laravel\Jetstream\Http\Controllers\Livewire\UserProfileController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::middleware([

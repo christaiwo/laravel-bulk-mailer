@@ -16,10 +16,10 @@ class Mail extends Mailable
     /**
      * Create a new message instance.
      */
-    public $mail;
+    public $data;
     public function __construct($mail)
     {
-        $this->mail = $mail;
+        $this->data = $mail;
     }
 
     /**
@@ -28,7 +28,7 @@ class Mail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Mail',
+            subject: $this->data->subject,
         );
     }
 

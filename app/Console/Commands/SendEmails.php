@@ -29,19 +29,16 @@ class SendEmails extends Command
      */
     public function handle()
     {
-        $mail = DBMail::where('status', 0)->first();
-        
+        $mail = DBMail::where('status', 0)->limit(10)->first();
         foreach ($mail->emails as $email) {
             if($email->status == 0){
                 SendMail::to($email)->send(new Mail($mail) );
-
                 $fetchmail = Email::where('id', $email->id);
                 $fetchmail->update([
                     'status' => 1,
                 ]);
 
-
-                if($mail->sent >= $mail->total){
+                if(($mail->sent + 1) >= $mail->total){
                     $mail->update([
                         'sent' => $mail->sent + 1,
                         'status' => 1,
@@ -51,6 +48,8 @@ class SendEmails extends Command
                         'sent' => $mail->sent + 1,
                     ]);
                 }
+
+                sleep(5);
             }
         }
     }

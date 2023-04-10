@@ -6,7 +6,14 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="mx-4 text-center">
+            <a href="{{ route('email.resend', $mail->id) }}">
+                <x-button>
+                    {{ __('RESEND MAIL') }}
+                </x-button>
+            </a>
+        </div>
+        <div class="max-w-7xl mx-auto mt-6 sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400">
